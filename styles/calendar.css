@@ -1,0 +1,82 @@
+#calendar {
+    background: #fff;
+    border-radius: 4px;
+    color: #000;
+    overflow: hidden;
+    margin-top: 20px;
+    max-width: 280px;
+    font-family: Arial;
+    border: 1px solid black;
+}
+
+#calendar.hidden {
+    display: none;
+}
+
+button {
+    border: none;
+}
+
+#calendar .header {
+    background: #fff;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+#calendar .header+div {
+    
+}
+
+#calendar .month {
+    display: inline-block;
+    font-weight: bold;
+}
+
+#calendar button {
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    height: 100%;
+    padding: 0 10px;
+}
+
+#calendar button:first-child {
+    float: left;
+}
+
+#calendar button:last-child {
+    float: right;
+}
+
+#calendar .cell {
+    background: #fff;
+    color: #5d5d5d;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 8px;
+    text-align: center;
+    width: calc(100% / 7);
+    cursor: pointer;
+}
+
+#calendar .cell:hover {
+    background: #fff;    
+    border-radius: 50%;
+    border: 2px solid #2D6FD5;
+}
+
+#calendar .day {    
+    padding: 8px;
+}
+
+#calendar .cell.today {
+    background-color: #2D6FD5;
+    color: white;
+}
+
+#calendar .day {
+    color: black;
+}
