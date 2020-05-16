@@ -3,35 +3,25 @@
 })(this, (root) => {
 	
 	let monthList = new Array(
-		"january",
-		"february",
-		"march",
-		"april",
-		"may",
-		"june",
-		"july",
-		"august",
-		"september",
-		"october",
-		"november",
-		"december"
+		"January",
+		"February",
+		"March",
+		"April",
+		"May",
+		"June",
+		"July",
+		"August",
+		"September",
+		"October",
+		"November",
+		"December"
 	);
 	
-	let dayList = new Array(
-	"s",
-	"m",
-	"t",
-	"w",
-	"t",
-	"f",
-	"s"
-	);
+	let dayList = new Array("s", "m", "t", "w",	"t", "f", "s");
 	
 	let today = new Date();
 	
 	today.setHours(0, 0, 0, 0);
-
-	let privateVar = "No, No, No...";
 
 	let init = () => {
 		console.log("Init the calendar");
@@ -40,49 +30,55 @@
 
 		let currentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
 
-		// Creating the div for our calendar's header
-		let header = document.createElement("div");
-		header.classList.add("header");
+		// div for calendar's header
+		let monthNav = document.createElement("div");
+		monthNav.classList.add("month-nav");
 		
-
 		// Our "previous" button
 		let previousButton = document.createElement("button");
 		previousButton.setAttribute("data-action", "-1");
 		previousButton.textContent = "\u003c";
-		header.appendChild(previousButton);
+		monthNav.appendChild(previousButton);
 
 		// Creating the div that will contain the actual month/year
 		let monthDiv = document.createElement("div");
 		monthDiv.classList.add("month");
-		header.appendChild(monthDiv);
+		monthNav.appendChild(monthDiv);
 
 		// Our "next" button
 		let nextButton = document.createElement("button");
 		nextButton.setAttribute("data-action", "1");
 		nextButton.textContent = "\u003e";
-		header.appendChild(nextButton);
-
+		monthNav.appendChild(nextButton);
 		
-		element.appendChild(header);
+		element.appendChild(monthNav);
 
 		// Creating the div that will contain the days of our calendar
 		let content = document.createElement("div");
 		element.appendChild(content);
 
+		// Add Cancel and Done nuttons
+		let actionBtn = document.createElement("div");
+		
+		let cancel = document.createElement("button");
+		cancel.classList.add("cancel");
+
+		let done = document.createElement("button");
+		done.classList.add("done");
+		element.appendChild(actionBtn);
+
 		// Load current month
-		// monthDiv is the element in the header that will contain the month's name
-		// content is the element that will contain our days' cells
-		// We created those variables earlier in the function
 		loadMonth(currentMonth, content, monthDiv);
 
 		// Next/previous button functionality
 		element.querySelectorAll("button").forEach((element) => {
 			element.addEventListener("click", () => {
-			currentMonth.setMonth(
-				currentMonth.getMonth() * 1 +
-				parseInt(element.getAttribute("data-action")) * 1
-			);
-			loadMonth(currentMonth, content, monthDiv);
+				currentMonth.setMonth(
+					currentMonth.getMonth() * 1 +
+					parseInt(element.getAttribute("data-action")) * 1
+				);
+				
+				loadMonth(currentMonth, content, monthDiv);
 			});
 		});
 	};
@@ -93,15 +89,13 @@
 
 		// Adding the month/year displayed
 		monthDiv.textContent =
-			monthList[date.getMonth()].toUpperCase() + " " + date.getFullYear();
+			monthList[date.getMonth()] + " " + date.getFullYear();
 
-		// Creating the cells containing the days of the week
-		// I've created a separate method for this
+		// Creating the cells containing the days of the week. E.g: S M T...
 		createDaysNamesCells(content);
 
 		// Creating empty cells if necessary
 		createEmptyCellsIfNecessary(content, date);
-
 
 		// Number of days in the current month
 		let monthLength = new Date(

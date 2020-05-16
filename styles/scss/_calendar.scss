@@ -1,0 +1,81 @@
+#calendar {
+    background: #fff;
+    border-radius: 2px;
+    color: #000;
+    overflow: hidden;
+    margin-top: 20px;
+    max-width: 280px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    box-shadow: 0 0 5px 5px #ccc;
+
+    .month-nav {
+        background: #fff;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    button:first-child {
+        float: left;
+    }
+
+    button:last-child {
+        float: right;
+    }
+
+    .month {
+        display: inline-block;
+    }
+
+    .cell {
+        background: #fff;
+        color: #5d5d5d;
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 8px;
+        text-align: center;
+        width: calc(100% / 7);
+        cursor: pointer;
+        border: 2px solid transparent; // fix the jitter on non-hover
+    }
+    
+    .cell:hover {
+        background: #fff;    
+        border-radius: 50%;
+        border: 2px solid #2D6FD5;
+    }
+    
+    .cell.empty:hover {
+        border: none;
+    }
+    
+    .cell.today {
+        background-color: #2D6FD5;
+        color: white;
+        border-radius: 50%;
+    }
+    
+    .day {    
+        padding: 8px;
+        color: $black;
+    }
+    
+    .day:hover {
+        border: none;
+    }
+
+    button {
+        background: none;
+        color: inherit;
+        cursor: pointer;
+        font-size: 14px;
+        height: 100%;
+        padding: 8px;
+    }
+}
