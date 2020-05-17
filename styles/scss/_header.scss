@@ -1,0 +1,22 @@
+.header {
+    border-bottom: 1px solid $mediumGrey;
+    padding: 8px 16px;
+    height: 24px;
+    vertical-align: middle;
+
+    .slDate {
+        float: left;
+    }
+
+    .txtDate {
+        float: right;
+        border: 1px solid $mediumGrey;
+        border-radius: 3px;
+        padding: 2px;
+        & input[type="text"] {
+            width: 84px;
+            height: 18px;
+            border: none;
+        }
+    }
+}

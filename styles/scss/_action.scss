@@ -1,12 +1,22 @@
 .actionBtn {
     border-top: 1px solid $mediumGrey;
-}
+    padding: 10px;
+    height: 32px;
+    text-align: right;
 
-.cancel {
-    color: $blue;
-}
+    & button {
+        height:32px;
+        width: 48px;
+    }
 
-.done {
-    color: $white;
-    background-color: $blue;
+    .cancel {
+        color: $blue !important;
+    }
+    
+    .done {
+        margin-left: 8px;
+        color: $white !important;
+        background-color: $blue !important;
+        border-radius: 2px;
+    }
 }

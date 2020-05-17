@@ -1,18 +1,27 @@
 #calendar {
-    background: #fff;
+    background: $white;
     border-radius: 2px;
-    color: #000;
+    color: $black;
     overflow: hidden;
     margin-top: 20px;
-    max-width: 280px;
+    max-width: 250px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    font-weight: 400;
-    box-shadow: 0 0 5px 5px #ccc;
+    font-weight: 500;
+    box-shadow: 0 0 5px 5px $lightGrey;
+}
+
+.calendar {
+    background: $white;
+    border-radius: 2px;
+    color: $black;
+    overflow: hidden;
+    padding: 16px 20px;
+    max-width: 210px;
 
     .month-nav {
-        background: #fff;
-        height: 40px;
+        background: $white;
+        height: 36px;
         line-height: 40px;
         text-align: center;
     }
@@ -21,11 +30,11 @@
         display: none;
     }
 
-    button:first-child {
+    .prev {
         float: left;
     }
 
-    button:last-child {
+    .next {
         float: right;
     }
 
@@ -34,11 +43,11 @@
     }
 
     .cell {
-        background: #fff;
-        color: #5d5d5d;
+        background: $white;
+        color: $blue;
         box-sizing: border-box;
         display: inline-block;
-        padding: 8px;
+        padding: 5px;
         text-align: center;
         width: calc(100% / 7);
         cursor: pointer;
@@ -46,9 +55,9 @@
     }
     
     .cell:hover {
-        background: #fff;    
+        background: $white;    
         border-radius: 50%;
-        border: 2px solid #2D6FD5;
+        border: 2px solid $blue;
     }
     
     .cell.empty:hover {
@@ -56,8 +65,8 @@
     }
     
     .cell.today {
-        background-color: #2D6FD5;
-        color: white;
+        background-color: $blue;
+        color: $white;
         border-radius: 50%;
     }
     
