@@ -1,19 +1,31 @@
 {
-  "name": "calendar-plugin",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://siddharthdb@github.com/siddharthdb/calendar-plugin.git"
-  },
-  "author": "Siddharth Bhawalkar",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/siddharthdb/calendar-plugin/issues"
-  },
-  "homepage": "https://github.com/siddharthdb/calendar-plugin#readme"
+    "name": "calendar-plugin",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "rollup --config config/rollup.config.js",
+        "start": "rollup -w --config config/rollup-dev.config.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://siddharthdb@github.com/siddharthdb/calendar-plugin.git"
+    },
+    "author": "Siddharth Bhawalkar",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/siddharthdb/calendar-plugin/issues"
+    },
+    "homepage": "https://github.com/siddharthdb/calendar-plugin#readme",
+    "devDependencies": {
+        "rollup": "^2.10.5",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-npm": "^2.0.0",
+        "rollup-plugin-sass": "^1.2.2",
+        "rollup-plugin-scss": "^2.5.0",
+        "rollup-plugin-terser": "^5.3.0",
+        "rollup-plugin-uglify": "^6.0.4",
+        "rollup-watch": "^4.3.1"
+    }
 }

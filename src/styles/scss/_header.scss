@@ -13,8 +13,18 @@
         border: 1px solid $mediumGrey;
         border-radius: 3px;
         padding: 2px;
-        & input[type="text"] {
-            width: 84px;
+        & #month {
+            width: 20px;
+            height: 18px;
+            border: none;
+        }
+        & #day {
+            width: 20px;
+            height: 18px;
+            border: none;
+        }
+        & #year {
+            width: 20px;
             height: 18px;
             border: none;
         }
