@@ -19,6 +19,8 @@ var calendar = (() => {
       
       const today = new Date();
       today.setHours(0, 0, 0, 0);
+
+      let selectedDate = null;
       
       let initializeCalendar = () => {
         console.log("Init the calendar");
@@ -86,20 +88,15 @@ var calendar = (() => {
       
         let selectDate = document.createElement("div");
       
-        let txtmonth = document.createElement("input");
-        txtmonth.id = "month";
-        txtmonth.type = "text";
-        txtmonth.placeholder = "mm";
-      
-        let txtday = document.createElement("input");
-        txtday.id = "day";
-        txtday.type = "text";
-        txtday.placeholder = "dd";
-      
-        let txtyear = document.createElement("input");
-        txtyear.id = "year";
-        txtyear.type = "text";
-        txtyear.placeholder = "yyyy";
+        let txtSelDate = document.createElement("input");
+        txtSelDate.id = "selectedDate";
+        txtSelDate.type = "text";
+        txtSelDate.placeholder = "mm/dd/yyyy";
+        txtSelDate.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                //TODO: call loadMonth()
+            }
+        });
       
         //Add Previous and next button
         // Previous button
@@ -115,9 +112,7 @@ var calendar = (() => {
         nextButton.classList.add("next");
       
         selectDate.classList.add("txtDate");
-        selectDate.appendChild(txtmonth);
-        selectDate.appendChild(txtday);
-        selectDate.appendChild(txtyear);
+        selectDate.appendChild(txtSelDate);
         selectDate.appendChild(previousButton);
         selectDate.appendChild(nextButton);
       
@@ -134,6 +129,10 @@ var calendar = (() => {
         let cancel = document.createElement("button");
         cancel.classList.add("cancel");
         cancel.textContent = "Cancel";
+        cancel.addEventListener("click", e => {
+            selectedDate = null; //reset selected date to today
+            //TODO: Toggle back to Today's date
+        })
         actionBtn.appendChild(cancel);
       
         let done = document.createElement("button");
@@ -190,16 +189,27 @@ var calendar = (() => {
           // Cell's timestamp
           let timestamp = new Date(date.getFullYear(), date.getMonth(), i).getTime();
           cell.addEventListener("click", () => {
-            console.log(timestamp);
             console.log(new Date(timestamp));
+            selectedDate = timestamp;
+            toggleDateSelection(cell)
           });
       
           // Add a special class for today
-          if (timestamp === today.getTime()) {
+          if (timestamp === today.getTime() && selectedDate == null) {
             cell.classList.add("today");
+          } else if (selectedDate == timestamp) {
+              cell.classList.add("today");
           }
         }
       };
+
+      let toggleDateSelection = (cell) => {
+          let todayElm = document.querySelector(".today");
+          if (todayElm)
+            todayElm.classList.remove("today");
+
+          cell.classList.add("today");
+      }
       
       let createDaysNamesCells = (content) => {
         for (let i = 0; i < dayList.length; i++) {
@@ -226,4 +236,4 @@ var calendar = (() => {
 
 })();
 
-export { calendar };
+export default calendar;

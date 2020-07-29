@@ -6,7 +6,8 @@
 
     & button {
         height:32px;
-        width: 48px;
+        width: 58px;
+        border-radius: 2px;
     }
 
     .cancel {
@@ -17,6 +18,9 @@
         margin-left: 8px;
         color: $white !important;
         background-color: $blue !important;
-        border-radius: 2px;
+    }
+    .done:hover {
+        background-color: #EFEFEF !important;
+        color: $blue !important;
     }
 }
