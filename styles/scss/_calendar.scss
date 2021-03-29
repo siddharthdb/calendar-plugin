@@ -9,6 +9,7 @@
     font-size: 14px;
     font-weight: 400;
     box-shadow: 0 0 5px 5px #ccc;
+    padding: 4px;
 
     .month-nav {
         background: #fff;
@@ -38,7 +39,7 @@
         color: #5d5d5d;
         box-sizing: border-box;
         display: inline-block;
-        padding: 8px;
+        padding: 9px;
         text-align: center;
         width: calc(100% / 7);
         cursor: pointer;

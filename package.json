@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "parcel serve index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/siddharthdb/calendar-plugin/issues"
   },
-  "homepage": "https://github.com/siddharthdb/calendar-plugin#readme"
+  "homepage": "https://github.com/siddharthdb/calendar-plugin#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.2",
+    "sass": "^1.32.8"
+  }
 }
