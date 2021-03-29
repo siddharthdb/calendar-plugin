@@ -10,7 +10,6 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm i -g parcel@next
       - run: npm run build
 
 workflows:
