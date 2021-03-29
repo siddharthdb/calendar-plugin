@@ -3,7 +3,17 @@ orbs:
 
 version: 2.1
 
+jobs:
+  build-plugin:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: npm install
+
 workflows:
-  app-tests:
-    jobs:
-      - node/build
+    build-and-test:
+      jobs:
+        - build-plugin
