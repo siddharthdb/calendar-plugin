@@ -4,7 +4,7 @@ orbs:
 version: 2.1
 
 jobs:
-  build-plugin:
+  build-and-test:
     executor:
       name: node/default
     steps:
@@ -16,4 +16,4 @@ jobs:
 workflows:
     build-and-test:
       jobs:
-        - build-plugin
+        - build-and-test
